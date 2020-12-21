@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PlotAndStatistic extends JPanel {
-    Statistic statistic;
-    public PlotAndStatistic(Statistic statistic){
+public class PrintStatistic extends JPanel {
+    private Statistic statistic;
+    public PrintStatistic(Statistic statistic){
         this.statistic=statistic;
     }
 
@@ -19,5 +19,6 @@ public class PlotAndStatistic extends JPanel {
         g.drawString("numbers of plants: "+String.valueOf(statistic.getActualNumberOfPlants()),10,50);
         g.drawString("Average number of children: "+String.valueOf(statistic.getAverageNumberOfChildren()),10,70);
         g.drawString("Average energy: "+String.valueOf(statistic.getAverageEnergy()),10,90);
+        g.drawString("Average life length: "+String.valueOf(statistic.getAverageLifeLength()),10,110);
     }
 }

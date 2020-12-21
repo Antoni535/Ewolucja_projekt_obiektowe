@@ -30,4 +30,7 @@ public class Statistic {
         }
         return tmp/map.listOfAnimals.size();
     }
+    public float getAverageLifeLength(){
+        return map.averageLifeLength;
+    }
 }

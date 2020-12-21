@@ -46,20 +46,6 @@ public class Animal {
             default: return null;
         }
     }
-    @Override
-    public String toString() {
-        switch(orientation){
-            case NORTH:  return "N";
-            case WEST: return "W";
-            case SOUTH: return "S";
-            case EAST: return "E";
-            case NORTH_WEST: return "NW";
-            case SOUTH_WEST: return "SW";
-            case NORTH_EAST: return "NE";
-            case SOUTH_EAST: return "SE";
-            default: return null;
-        }
-    }
 
     public void move(int n){
         for (int i=0;i<n;i++){

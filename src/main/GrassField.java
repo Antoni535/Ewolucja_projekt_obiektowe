@@ -14,6 +14,8 @@ public class GrassField implements IPositionChangeObserver{
     public final int plantEnergy;
     public final int moveEnergy;
     public final int needEnergyToMultiply;
+    public float averageLifeLength=0;
+    public int numbersOfDeadAnimals;
     Random generator= new Random();
 
     public GrassField(int width,int height,int jungleRatio,int startEnergy,int plantEnergy,int moveEnergy){
@@ -25,6 +27,8 @@ public class GrassField implements IPositionChangeObserver{
         this.plantEnergy=plantEnergy;
         this.moveEnergy=moveEnergy;
         this.needEnergyToMultiply=startEnergy/2;
+        //this.averageLifeLength=0;
+        this.numbersOfDeadAnimals=0;
     }
     public Vector2d lowerLeftVector() {
         return vec0;
@@ -202,8 +206,17 @@ public class GrassField implements IPositionChangeObserver{
             if (animalsList.size()>1) animals.get(animal.getPosition()).remove(animal);
             else animals.remove(animal.getPosition());
         }
+        int tmp=0;
+        int i=0;
         for (Animal animal : deleteAnimalList){
+            tmp+=animal.age;
+            i++;
+            this.numbersOfDeadAnimals++;
             listOfAnimals.remove(animal);
+        }
+        if (deleteAnimalList.size()>0) {
+            float avg = (this.averageLifeLength * (this.numbersOfDeadAnimals - i) + tmp) / this.numbersOfDeadAnimals;
+            this.averageLifeLength = avg;
         }
     }
 

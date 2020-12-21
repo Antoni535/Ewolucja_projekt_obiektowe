@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class Visualization {
     private GrassField map;
@@ -10,7 +9,7 @@ public class Visualization {
     private JMenuItem stopItem;
     private JMenuItem startItem;
     private Statistic statistic;
-    private PlotAndStatistic plotAndStatistic;
+    private PrintStatistic plotAndStatistic;
 
     public Visualization(GrassField map, SimulationEngine engine,MapVisualizer mapVisualizer,Statistic statistic){
         this.map=map;
@@ -23,7 +22,7 @@ public class Visualization {
         this.jFrame.setSize(1400,800);
         this.jFrame.add(this.mapVisualizer);
         this.statistic=statistic;
-        this.plotAndStatistic=new PlotAndStatistic(statistic);
+        this.plotAndStatistic=new PrintStatistic(statistic);
         startItem = new JMenuItem("START");
         stopItem= new JMenuItem("STOP");
         startItem.setActionCommand("START");
